@@ -1,0 +1,14 @@
+{
+  "best_params": {
+    "rebalance_window": 4,
+    "top_n_portfolio": 1
+  },
+  "best_value": 62073.342977978136,
+  "metrics": {
+    "final_value": 10345152571.57268,
+    "total_return": 103450.52571572679,
+    "sharpe_ratio": 5.846383368983256,
+    "sortino_ratio": 9.291359341349686,
+    "max_drawdown": -0.20377512477459223
+  }
+}
