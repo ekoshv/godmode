@@ -10,6 +10,7 @@
   <a href="#philosophy">Philosophy</a> &nbsp;&bull;&nbsp;
   <a href="#key-results">Key Results</a> &nbsp;&bull;&nbsp;
   <a href="#how-it-works">How It Works</a> &nbsp;&bull;&nbsp;
+  <a href="#visual-analysis">Visual Analysis</a> &nbsp;&bull;&nbsp;
   <a href="#quickstart">Quickstart</a> &nbsp;&bull;&nbsp;
   <a href="#project-structure">Project Structure</a> &nbsp;&bull;&nbsp;
   <a href="#license">License</a>
@@ -59,6 +60,12 @@ Running from **2016-01-01** to **2025-09-26** across a universe of **15 ETFs** w
 
 **The takeaway:** we pay roughly **99.999%** of potential profit as the price for not knowing the future.
 
+<p align="center">
+  <img src="reports/god_mode_benchmark/god_mode_performance.png" alt="God Mode vs SPY Benchmark — Logarithmic Scale" width="100%">
+  <br>
+  <em>God Mode (gold) vs. SPY buy-and-hold (grey dashed) on a logarithmic scale. From $100k to $10.3 billion.</em>
+</p>
+
 ---
 
 ## How It Works
@@ -95,6 +102,42 @@ The two hyperparameters were optimized via **Optuna** (2,400 trials, 12 parallel
 | Portfolio Concentration | 1–5 assets | **1 asset** |
 
 The composite objective (60% Total Return + 20% Sharpe + 20% Sortino) converged on maximum concentration with a 4-day holding period — short enough to capture regime shifts, long enough to offset transaction cost drag.
+
+---
+
+## Visual Analysis
+
+### Portfolio Weight Statistics
+
+<p align="center">
+  <img src="reports/god_mode_benchmark/etf_weight_statistics.png" alt="ETF Portfolio Weight Statistics" width="100%">
+</p>
+
+Four views of allocation behavior: **SLV** (22.8%), **QQQ** (18.8%), and **TLT** (15.4%) dominate average allocation. High weight volatility confirms the binary all-or-nothing strategy — when an asset is selected, it gets 100%.
+
+### Weight Evolution Heatmap
+
+<p align="center">
+  <img src="reports/god_mode_benchmark/etf_weight_heatmap.png" alt="ETF Weight Heatmap — Monthly Average" width="100%">
+</p>
+
+Monthly average allocation over time. Deep red cells (70%+) appear sporadically across the universe. Note the regime shifts: early periods favor equity ETFs (QQQ, IWM), while 2023–2025 shows strong rotation into IBIT (Bitcoin) and SGOV (Short-Term Treasury).
+
+### Weight Evolution — Individual Lines
+
+<p align="center">
+  <img src="reports/god_mode_benchmark/etf_weight_evolution_lines.png" alt="ETF Weight Evolution — Line Chart" width="100%">
+</p>
+
+Individual weight trajectories confirm the binary allocation pattern: assets jump between 0% and 100% with rapid transitions every 4 days.
+
+### Weight Evolution — Stacked Area
+
+<p align="center">
+  <img src="reports/god_mode_benchmark/etf_weight_evolution_stacked.png" alt="ETF Weight Evolution — Stacked Area" width="100%">
+</p>
+
+Cumulative portfolio composition over the full 9-year period. The strategy dynamically rotates across equities, bonds, commodities, and crypto — always holding the single best-performing asset for each window.
 
 ---
 
